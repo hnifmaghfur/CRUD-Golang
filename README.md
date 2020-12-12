@@ -1,5 +1,5 @@
 # CRUD-Golang
-This is my repository about laerning Go Language (Golang).
+This is my repository about learning Go Language (Golang).
 
 ## Already Learned
 - Clean Code
