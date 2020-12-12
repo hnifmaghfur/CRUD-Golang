@@ -1,4 +1,4 @@
-# CRUD-Golang
+# Go Language (Golang)
 This is my repository about learning Go Language (Golang).
 
 ## Already Learned
