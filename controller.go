@@ -132,7 +132,7 @@ func patchSinglePhoto(writer http.ResponseWriter, request *http.Request) {
 	fmt.Printf("MIME Type : %+v\n", handler.Header)
 
 	//store image to images folder
-	storePhoto, err := ioutil.TempFile("images", "upload-*.svg")
+	storePhoto, err := ioutil.TempFile("images", "upload-*.png")
 	if err != nil {
 		renderJson(writer, handleMessage(500, "failed save photo."))
 		return
