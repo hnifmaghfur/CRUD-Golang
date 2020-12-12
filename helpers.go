@@ -43,6 +43,7 @@ func handleMessage(status int, message string) Response {
 	return response
 }
 
+//parse Form multipart data.
 func parseForm(w http.ResponseWriter, r *http.Request, memory int64, status int, message string) {
 	err := r.ParseMultipartForm(memory)
 	if err != nil {
