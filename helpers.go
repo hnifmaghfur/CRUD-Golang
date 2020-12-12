@@ -9,7 +9,6 @@ import (
 	"net/http"
 )
 
-
 //connect DB
 func connect() *sql.DB {
 	user := "root"
@@ -28,14 +27,11 @@ func connect() *sql.DB {
 	return db
 }
 
-
 //formResponse
 func renderJson(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(data)
-	//log.Print(data)
 }
-
 
 //handle message
 func handleMessage(status int, message string) Response {
@@ -45,4 +41,12 @@ func handleMessage(status int, message string) Response {
 	response.Message = message
 
 	return response
+}
+
+func parseForm(w http.ResponseWriter, r *http.Request, memory int64, status int, message string) {
+	err := r.ParseMultipartForm(memory)
+	if err != nil {
+		renderJson(w, handleMessage(status, message))
+	}
+	return
 }

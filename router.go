@@ -10,7 +10,6 @@ func server() *mux.Router {
 	router.HandleFunc("/api/user", getUser).Methods("GET")
 	router.HandleFunc("/api/user", postUser).Methods("POST")
 	router.HandleFunc("/api/user", patchUser).Methods("PATCH")
+	router.HandleFunc("/api/user/singlePhoto", patchSinglePhoto).Methods("PATCH")
 	return router
 }
-
-
