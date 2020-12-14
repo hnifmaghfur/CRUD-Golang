@@ -7,6 +7,7 @@ This is my repository about learning Go Language (Golang).
 - Model, Controller, Route concept
 - CRUD Golang
 - Upload Images with Patch by Id
+- data structuring in sub directory
 
 ## On Progress
 - Upload Images with or without files by Id
@@ -15,5 +16,5 @@ This is my repository about learning Go Language (Golang).
 
 
 ## My Tools
-- Goland (Free Edition)
+- Visual Studio Code
 - Postman
