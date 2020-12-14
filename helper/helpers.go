@@ -1,16 +1,18 @@
-package main
+package helper
 
 import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"net/http"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/hnifmaghfur/Go-Language-Golang-/model"
 )
 
 //connect DB
-func connect() *sql.DB {
+func Connect() *sql.DB {
 	user := "root"
 	password := ""
 	host := "localhost"
@@ -28,14 +30,21 @@ func connect() *sql.DB {
 }
 
 //formResponse
-func renderJson(w http.ResponseWriter, data interface{}) {
+func RenderJson(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(data)
+	dataValue, err := json.Marshal(data)
+	if err != nil {
+		log.Print(err)
+	}
+	err = json.NewEncoder(w).Encode(dataValue)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
 //handle message
-func handleMessage(status int, message string) Response {
-	var response Response
+func HandleMessage(status int, message string) model.Response {
+	var response model.Response
 
 	response.Status = status
 	response.Message = message
@@ -44,10 +53,9 @@ func handleMessage(status int, message string) Response {
 }
 
 //parse Form multipart data.
-func parseForm(w http.ResponseWriter, r *http.Request, memory int64, status int, message string) {
+func ParseForm(w http.ResponseWriter, r *http.Request, memory int64, status int, message string) {
 	err := r.ParseMultipartForm(memory)
 	if err != nil {
-		renderJson(w, handleMessage(status, message))
+		RenderJson(w, HandleMessage(status, message))
 	}
-	return
 }
