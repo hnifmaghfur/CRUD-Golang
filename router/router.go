@@ -7,6 +7,12 @@ import (
 
 func Server() *mux.Router {
 	router := mux.NewRouter()
+
+	//auth route
+	router.HandleFunc("/api/login", controller.Login).Methods("POST")
+	
+
+	//user route
 	router.HandleFunc("/", controller.Active).Methods("GET")
 	router.HandleFunc("/api/user", controller.GetUser).Methods("GET")
 	router.HandleFunc("/api/user", controller.PostUser).Methods("POST")

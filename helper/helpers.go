@@ -32,11 +32,7 @@ func Connect() *sql.DB {
 //formResponse
 func RenderJson(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-	dataValue, err := json.Marshal(data)
-	if err != nil {
-		log.Print(err)
-	}
-	err = json.NewEncoder(w).Encode(dataValue)
+	err := json.NewEncoder(w).Encode(data)
 	if err != nil {
 		fmt.Println(err)
 	}
