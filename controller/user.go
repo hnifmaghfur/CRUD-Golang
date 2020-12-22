@@ -1,11 +1,13 @@
 package controller
 
 import (
+	"database/sql"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"database/sql"
+
 	"github.com/hnifmaghfur/Go-Language-Golang-/helper"
 	"github.com/hnifmaghfur/Go-Language-Golang-/model"
 )
@@ -17,11 +19,14 @@ var mysqlDB *sql.DB
 func Active(w http.ResponseWriter, r *http.Request) {
 	status := 200
 	w.WriteHeader(status)
-	helper.RenderJson(w, helper.HandleMessage(status, "Hallo Golang"))
-	// json.NewEncoder(w).Encode(map[string]interface{}{
-	// 	"status":  status,
-	// 	"message": "Hallo Golang",
-	// })
+	// helper.RenderJson(w, helper.HandleMessage(status, "Hallo Golang"))
+	err := json.NewEncoder(w).Encode(map[string]interface{}{
+		"status":  status,
+		"message": "Hallo Golang",
+	})
+	if err != nil {
+		log.Print(err)
+	}
 }
 
 //get user
