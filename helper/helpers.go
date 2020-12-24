@@ -55,3 +55,9 @@ func ParseForm(w http.ResponseWriter, r *http.Request, memory int64, status int,
 		RenderJson(w, HandleMessage(status, message))
 	}
 }
+
+//log view on terminal
+func LogView(data interface{}, status int, message string  ){
+	log.Printf("Status : %v\n", status)
+	log.Printf("%v : \n %v\n",message, data)
+}

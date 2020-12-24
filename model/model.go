@@ -1,9 +1,11 @@
 package model
 
 type Users struct {
-	ID   int	`json:"id"`
-	Name string	`json:"name"`
-	Age  int	`json:"age"`
+	ID       int     `json:"id"`
+	Email    string  `json:"email"`
+	Password []uint8 `json:"password"`
+	Name     string  `json:"name"`
+	Age      int     `json:"age"`
 }
 
 type Response struct {
@@ -11,4 +13,3 @@ type Response struct {
 	Message string `json:"message"`
 	Data    []Users
 }
-
