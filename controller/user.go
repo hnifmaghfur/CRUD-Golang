@@ -33,7 +33,7 @@ func Active(w http.ResponseWriter, r *http.Request) {
 func GetUser(writer http.ResponseWriter, request *http.Request) {
 
 	var user model.Users
-	var userData []model.Users //tampung hasil akhir
+	var userData []model.Users
 
 	mysqlDB = helper.Connect()
 	defer mysqlDB.Close()

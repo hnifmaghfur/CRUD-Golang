@@ -8,12 +8,17 @@ This is my repository about learning Go Language (Golang).
 - CRUD Golang
 - Upload Images with Patch by Id
 - data structuring in sub directory
+- Encrypt Password using bcrypt
+- Authorization with JWT (json web token) for token login.
 
 ## On Progress
 - Upload Images with or without files by Id
-- Implement request headet token for login session
-- Authorization with JWT (json web token)
+- Implement request header for getting data user
 
+## How to Use
+- Clone Repository
+- open folder from terminal
+- running `go run main.go` in your terminal
 
 ## My Tools
 - Visual Studio Code
